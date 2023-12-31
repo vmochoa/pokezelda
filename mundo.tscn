@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://pojygr3wopd8"]
+
+[ext_resource type="Texture2D" uid="uid://dowivjjy7sxnl" path="res://Assets/tilesets/grass.png" id="1_g8tab"]
+[ext_resource type="PackedScene" uid="uid://oo2ii2uupg24" path="res://jugador.tscn" id="3_lyc8q"]
+[ext_resource type="Texture2D" uid="uid://cghrsn35h7pio" path="res://Assets/tilesets/walls/walls.png" id="4_oqqeq"]
+[ext_resource type="PackedScene" uid="uid://brcqg5glb8dvw" path="res://arbol.tscn" id="5_3wadl"]
+[ext_resource type="Texture2D" uid="uid://bgutrlawik4kr" path="res://Assets/tilesets/floors/wooden.png" id="5_4wuab"]
+
+[node name="Mundo" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(589, 489)
+
+[node name="Grass" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-165.5, -326)
+scale = Vector2(104.563, 53.75)
+texture = ExtResource("1_g8tab")
+
+[node name="Jugador2" parent="." instance=ExtResource("3_lyc8q")]
+position = Vector2(-153, -170)
+
+[node name="Walls" type="Sprite2D" parent="."]
+position = Vector2(-292, -146)
+texture = ExtResource("4_oqqeq")
+
+[node name="Wooden" type="Sprite2D" parent="."]
+position = Vector2(-122, -152)
+texture = ExtResource("5_4wuab")
+
+[node name="Arbol2d" parent="." instance=ExtResource("5_3wadl")]
+position = Vector2(-437, -296)
+
+[node name="Arbol2d2" parent="." instance=ExtResource("5_3wadl")]
+position = Vector2(-242, -377)
+
+[node name="Arbol2d3" parent="." instance=ExtResource("5_3wadl")]
+position = Vector2(-9, -298)
+
+[node name="Arbol2d4" parent="." instance=ExtResource("5_3wadl")]
+position = Vector2(145, -125)
+
+[node name="Arbol2d5" parent="." instance=ExtResource("5_3wadl")]
+position = Vector2(-472, -98)
+
+[node name="Arbol2d7" parent="." instance=ExtResource("5_3wadl")]
+position = Vector2(-501, -418)
+
+[node name="Arbol2d8" parent="." instance=ExtResource("5_3wadl")]
+position = Vector2(-110, -61)
+
+[node name="Arbol2d9" parent="." instance=ExtResource("5_3wadl")]
+position = Vector2(-80, -437)
+
+[node name="Arbol2d10" parent="." instance=ExtResource("5_3wadl")]
+position = Vector2(221, -286)
+
+[node name="Arbol2d6" parent="." instance=ExtResource("5_3wadl")]
+position = Vector2(246, -441)

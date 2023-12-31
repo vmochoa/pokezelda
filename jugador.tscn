@@ -1,0 +1,288 @@
+[gd_scene load_steps=42 format=3 uid="uid://oo2ii2uupg24"]
+
+[ext_resource type="Script" path="res://Jugador.gd" id="1_l2s6d"]
+[ext_resource type="Texture2D" uid="uid://ckuf37nolsmwa" path="res://Assets/characters/player.png" id="2_26ohb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cwi88"]
+radius = 7.0
+
+[sub_resource type="Animation" id="Animation_2plae"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ledqn"]
+resource_name = "atacarFrente"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39]
+}
+
+[sub_resource type="Animation" id="Animation_7duvw"]
+resource_name = "caminarEspalda"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [30, 31, 33, 34]
+}
+
+[sub_resource type="Animation" id="Animation_lex2j"]
+resource_name = "caminarFrente"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, -2, 1, 1),
+"update": 1,
+"values": [18, 19, 21, 22]
+}
+
+[sub_resource type="Animation" id="Animation_1c0y1"]
+resource_name = "idle"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_ic8x3"]
+resource_name = "caminarIzquierda"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, true, true, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_hssn0"]
+resource_name = "caminarDerecha"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28, 29]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, false, false, false, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4gxud"]
+_data = {
+"RESET": SubResource("Animation_2plae"),
+"atacarFrente": SubResource("Animation_ledqn"),
+"caminarDerecha": SubResource("Animation_hssn0"),
+"caminarEspalda": SubResource("Animation_7duvw"),
+"caminarFrente": SubResource("Animation_lex2j"),
+"caminarIzquierda": SubResource("Animation_ic8x3"),
+"idle": SubResource("Animation_1c0y1")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v7mwt"]
+animation = &"atacarFrente"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1a6gl"]
+animation = &"caminarDerecha"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qlfos"]
+animation = &"caminarEspalda"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7047p"]
+animation = &"caminarFrente"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_el2i0"]
+animation = &"caminarIzquierda"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pmvjb"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xsmdv"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qquc7"]
+priority = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i2xi8"]
+priority = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nah1d"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2vltf"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gkim2"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6buck"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r7wnc"]
+priority = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ieddu"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gigpa"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fkyss"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_blhg3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d76d5"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2qv6b"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7lsmr"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_t2duv"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5d0hx"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j3pcp"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bs6bt"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hbrsk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4f0ai"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0ujeq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bwps6"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_pys46"]
+states/End/position = Vector2(1183, 94.1795)
+states/Start/position = Vector2(85, 79)
+states/atacarFrente/node = SubResource("AnimationNodeAnimation_v7mwt")
+states/atacarFrente/position = Vector2(778, 274)
+states/caminarDerecha/node = SubResource("AnimationNodeAnimation_1a6gl")
+states/caminarDerecha/position = Vector2(851, 195.18)
+states/caminarEspalda/node = SubResource("AnimationNodeAnimation_qlfos")
+states/caminarEspalda/position = Vector2(501, 79)
+states/caminarFrente/node = SubResource("AnimationNodeAnimation_7047p")
+states/caminarFrente/position = Vector2(501, 283)
+states/caminarIzquierda/node = SubResource("AnimationNodeAnimation_el2i0")
+states/caminarIzquierda/position = Vector2(308, 195.18)
+states/idle/node = SubResource("AnimationNodeAnimation_pmvjb")
+states/idle/position = Vector2(501, 166)
+transitions = ["caminarEspalda", "idle", SubResource("AnimationNodeStateMachineTransition_xsmdv"), "idle", "atacarFrente", SubResource("AnimationNodeStateMachineTransition_qquc7"), "idle", "caminarEspalda", SubResource("AnimationNodeStateMachineTransition_i2xi8"), "atacarFrente", "idle", SubResource("AnimationNodeStateMachineTransition_nah1d"), "atacarFrente", "caminarEspalda", SubResource("AnimationNodeStateMachineTransition_2vltf"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_gkim2"), "idle", "End", SubResource("AnimationNodeStateMachineTransition_6buck"), "idle", "caminarFrente", SubResource("AnimationNodeStateMachineTransition_r7wnc"), "caminarFrente", "idle", SubResource("AnimationNodeStateMachineTransition_ieddu"), "caminarFrente", "atacarFrente", SubResource("AnimationNodeStateMachineTransition_gigpa"), "atacarFrente", "caminarFrente", SubResource("AnimationNodeStateMachineTransition_fkyss"), "caminarIzquierda", "idle", SubResource("AnimationNodeStateMachineTransition_blhg3"), "idle", "caminarIzquierda", SubResource("AnimationNodeStateMachineTransition_d76d5"), "idle", "caminarDerecha", SubResource("AnimationNodeStateMachineTransition_2qv6b"), "caminarDerecha", "idle", SubResource("AnimationNodeStateMachineTransition_7lsmr"), "caminarDerecha", "caminarFrente", SubResource("AnimationNodeStateMachineTransition_t2duv"), "caminarFrente", "caminarDerecha", SubResource("AnimationNodeStateMachineTransition_5d0hx"), "caminarFrente", "caminarIzquierda", SubResource("AnimationNodeStateMachineTransition_j3pcp"), "caminarIzquierda", "caminarFrente", SubResource("AnimationNodeStateMachineTransition_bs6bt"), "caminarEspalda", "caminarIzquierda", SubResource("AnimationNodeStateMachineTransition_hbrsk"), "caminarIzquierda", "caminarEspalda", SubResource("AnimationNodeStateMachineTransition_4f0ai"), "caminarEspalda", "caminarDerecha", SubResource("AnimationNodeStateMachineTransition_0ujeq"), "caminarDerecha", "caminarEspalda", SubResource("AnimationNodeStateMachineTransition_bwps6")]
+graph_offset = Vector2(0, 40.1795)
+
+[node name="Jugador" type="CharacterBody2D"]
+script = ExtResource("1_l2s6d")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_26ohb")
+flip_h = true
+hframes = 6
+vframes = 10
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_cwi88")
+
+[node name="AnimacionesPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4gxud")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4gxud")
+}
+tree_root = SubResource("AnimationNodeStateMachine_pys46")
+advance_expression_base_node = NodePath("../AnimacionesPlayer")
+anim_player = NodePath("../AnimacionesPlayer")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-3, -74)
+zoom = Vector2(2, 2)
