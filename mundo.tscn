@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://pojygr3wopd8"]
+[gd_scene load_steps=7 format=3 uid="uid://pojygr3wopd8"]
 
 [ext_resource type="Texture2D" uid="uid://dowivjjy7sxnl" path="res://Assets/tilesets/grass.png" id="1_g8tab"]
 [ext_resource type="PackedScene" uid="uid://oo2ii2uupg24" path="res://jugador.tscn" id="3_lyc8q"]
-[ext_resource type="Texture2D" uid="uid://cghrsn35h7pio" path="res://Assets/tilesets/walls/walls.png" id="4_oqqeq"]
 [ext_resource type="PackedScene" uid="uid://brcqg5glb8dvw" path="res://arbol.tscn" id="5_3wadl"]
-[ext_resource type="Texture2D" uid="uid://bgutrlawik4kr" path="res://Assets/tilesets/floors/wooden.png" id="5_4wuab"]
+[ext_resource type="Texture2D" uid="uid://djm5wpvvn4atr" path="res://Assets/objects/chest_01.png" id="5_4kdo6"]
+[ext_resource type="PackedScene" uid="uid://bt8vbqww4btu7" path="res://slime.tscn" id="6_c0aaq"]
+[ext_resource type="Texture2D" uid="uid://de8nxx62bq0tc" path="res://Assets/tilesets/fences.png" id="6_wad02"]
 
 [node name="Mundo" type="Node2D"]
 y_sort_enabled = true
@@ -12,47 +13,72 @@ position = Vector2(589, 489)
 
 [node name="Grass" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(-165.5, -326)
-scale = Vector2(104.563, 53.75)
+position = Vector2(-34.502, -174.5)
+scale = Vector2(120.938, 72.6875)
 texture = ExtResource("1_g8tab")
 
 [node name="Jugador2" parent="." instance=ExtResource("3_lyc8q")]
 position = Vector2(-153, -170)
 
-[node name="Walls" type="Sprite2D" parent="."]
-position = Vector2(-292, -146)
-texture = ExtResource("4_oqqeq")
-
-[node name="Wooden" type="Sprite2D" parent="."]
-position = Vector2(-122, -152)
-texture = ExtResource("5_4wuab")
-
 [node name="Arbol2d" parent="." instance=ExtResource("5_3wadl")]
-position = Vector2(-437, -296)
+position = Vector2(-403, -293)
 
 [node name="Arbol2d2" parent="." instance=ExtResource("5_3wadl")]
-position = Vector2(-242, -377)
+position = Vector2(81, -40)
 
 [node name="Arbol2d3" parent="." instance=ExtResource("5_3wadl")]
 position = Vector2(-9, -298)
 
 [node name="Arbol2d4" parent="." instance=ExtResource("5_3wadl")]
-position = Vector2(145, -125)
+position = Vector2(87, -136)
 
 [node name="Arbol2d5" parent="." instance=ExtResource("5_3wadl")]
-position = Vector2(-472, -98)
+position = Vector2(-403, -181)
 
 [node name="Arbol2d7" parent="." instance=ExtResource("5_3wadl")]
-position = Vector2(-501, -418)
+position = Vector2(-298, -234)
 
 [node name="Arbol2d8" parent="." instance=ExtResource("5_3wadl")]
 position = Vector2(-110, -61)
 
 [node name="Arbol2d9" parent="." instance=ExtResource("5_3wadl")]
-position = Vector2(-80, -437)
+position = Vector2(-143, -314)
 
 [node name="Arbol2d10" parent="." instance=ExtResource("5_3wadl")]
-position = Vector2(221, -286)
+position = Vector2(-261, -320)
 
 [node name="Arbol2d6" parent="." instance=ExtResource("5_3wadl")]
-position = Vector2(246, -441)
+position = Vector2(-361, -33)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("6_c0aaq")]
+position = Vector2(-87, -224)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("6_c0aaq")]
+position = Vector2(-376, -128)
+
+[node name="CharacterBody2D3" parent="." instance=ExtResource("6_c0aaq")]
+position = Vector2(-8, -137)
+
+[node name="CharacterBody2D4" parent="." instance=ExtResource("6_c0aaq")]
+position = Vector2(-239, -89)
+
+[node name="CharacterBody2D5" parent="." instance=ExtResource("6_c0aaq")]
+position = Vector2(74, -293)
+
+[node name="CharacterBody2D7" parent="." instance=ExtResource("6_c0aaq")]
+position = Vector2(-381, -256)
+
+[node name="CharacterBody2D8" parent="." instance=ExtResource("6_c0aaq")]
+position = Vector2(-201, -266)
+
+[node name="Chest01" type="Sprite2D" parent="."]
+position = Vector2(-267, -161)
+texture = ExtResource("5_4kdo6")
+
+[node name="Fences" type="Sprite2D" parent="."]
+position = Vector2(7, -80)
+texture = ExtResource("6_wad02")
+
+[node name="Fences2" type="Sprite2D" parent="."]
+position = Vector2(-58, -81)
+texture = ExtResource("6_wad02")

@@ -1,0 +1,111 @@
+[gd_scene load_steps=15 format=3 uid="uid://bt8vbqww4btu7"]
+
+[ext_resource type="Script" path="res://slime.gd" id="1_ibyq4"]
+[ext_resource type="Texture2D" uid="uid://dr4vgjk11qorw" path="res://Assets/characters/slime.png" id="1_mica5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jfmdu"]
+radius = 9.05539
+
+[sub_resource type="Animation" id="Animation_w27gj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Slime:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_4opqy"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Slime:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_hdo66"]
+resource_name = "jump"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Slime:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [14, 15, 16, 17, 18, 19, 23]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s6v5v"]
+_data = {
+"RESET": SubResource("Animation_w27gj"),
+"idle": SubResource("Animation_4opqy"),
+"jump": SubResource("Animation_hdo66")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1tndk"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p2uky"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tuiyq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3yvjc"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wpdfx"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7n3i2"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_nea6x"]
+states/End/position = Vector2(905, 167)
+states/Start/position = Vector2(205, 167)
+states/idle/node = SubResource("AnimationNodeAnimation_1tndk")
+states/idle/position = Vector2(550, 167)
+states/jump/node = SubResource("AnimationNodeAnimation_p2uky")
+states/jump/position = Vector2(550, 90)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_tuiyq"), "idle", "End", SubResource("AnimationNodeStateMachineTransition_3yvjc"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_wpdfx"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_7n3i2")]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_ibyq4")
+
+[node name="Slime" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("1_mica5")
+hframes = 7
+vframes = 5
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jfmdu")
+
+[node name="AnimationSlime" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s6v5v")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s6v5v")
+}
+tree_root = SubResource("AnimationNodeStateMachine_nea6x")
+advance_expression_base_node = NodePath("../AnimationSlime")
+anim_player = NodePath("../AnimationSlime")
