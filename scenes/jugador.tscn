@@ -1,6 +1,6 @@
 [gd_scene load_steps=54 format=3 uid="uid://oo2ii2uupg24"]
 
-[ext_resource type="Script" path="res://Jugador.gd" id="1_l2s6d"]
+[ext_resource type="Script" path="res://scenes/Jugador.gd" id="1_l2s6d"]
 [ext_resource type="Texture2D" uid="uid://ckuf37nolsmwa" path="res://Assets/characters/player.png" id="2_26ohb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cwi88"]
